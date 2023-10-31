@@ -17,8 +17,14 @@ const App = () => {
 				</div>
 				<div className='flex flex-col'>
 					<label className='font-bold'>Email Address</label>
-					<input type='email' placeholder='email@company.com' className='border rounded-lg border-gray p-3 mt-2 mb-6' />
-					<button className='bg-midnight text-white rounded-lg p-3 font-bold'>Subscribe to monthly newsletter</button>
+					<input
+						type='email'
+						placeholder='email@company.com'
+						className='border rounded-lg border-gray p-3 mt-2 mb-6 focus:border-black focus:outline-none'
+					/>
+					<button className='bg-midnight text-white rounded-lg p-3 duration-300 ease-in-out font-bold hover:bg-gradient-to-r from-grad1 to-grad2 transition '>
+						Subscribe to monthly newsletter
+					</button>
 				</div>
 			</div>
 			<div>
