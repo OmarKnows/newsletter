@@ -1,37 +1,14 @@
-import img from './assets/images/illustration-sign-up-desktop.svg';
+import { useState } from 'react';
+import Home from './components/Home';
+import Submit from './components/Submit';
 
 const App = () => {
-	return (
-		<div className='bg-white m-auto justify-between mt-28 w-2/3 flex rounded-[2.5rem] p-5 items-center text'>
-			<div className='p-12'>
-				<div>
-					<p className='text-6xl mb-6 font-bold'>Stay Updated!</p>
-					<p className='w-[90%]'>Join 60,000+ product managers receiving monthly updates on:</p>
-				</div>
-				<div className='my-6'>
-					<ul className='custom-list'>
-						<li>Product discovery and building what matters</li>
-						<li>Measuring to ensure updates are a success</li>
-						<li>And much more!</li>
-					</ul>
-				</div>
-				<div className='flex flex-col'>
-					<label className='font-bold'>Email Address</label>
-					<input
-						type='email'
-						placeholder='email@company.com'
-						className='border rounded-lg border-gray p-3 mt-2 mb-6 focus:border-black focus:outline-none'
-					/>
-					<button className='bg-midnight text-white rounded-lg p-3 duration-300 ease-in-out font-bold hover:bg-gradient-to-r from-grad1 to-grad2 transition '>
-						Subscribe to monthly newsletter
-					</button>
-				</div>
-			</div>
-			<div>
-				<img src={img} />
-			</div>
-		</div>
-	);
+	const [submit, setSubmit] = useState(false);
+	const handleSubmit = (data: unknown) => {
+		console.log(data);
+		setSubmit(!submit);
+	};
+	return !submit ? <Home submit={handleSubmit} /> : <Submit />;
 };
 
 export default App;
