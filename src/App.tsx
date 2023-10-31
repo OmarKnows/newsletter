@@ -1,14 +1,11 @@
-import { useState } from 'react';
 import Home from './components/Home';
 import Submit from './components/Submit';
+import { useAppContext } from './context/appContextProvider';
 
 const App = () => {
-	const [submit, setSubmit] = useState(false);
-	const handleSubmit = (data: unknown) => {
-		console.log(data);
-		setSubmit(!submit);
-	};
-	return !submit ? <Home submit={handleSubmit} /> : <Submit />;
+	const { submit } = useAppContext();
+
+	return !submit ? <Home /> : <Submit />;
 };
 
 export default App;

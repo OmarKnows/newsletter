@@ -2,22 +2,25 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import img from '../assets/images/illustration-sign-up-desktop.svg';
 import { cn } from '../utils';
-import Button from './Button';
-
-interface IHomeProps {
-	submit: (data: unknown) => void;
-}
+import { useAppContext } from '../context/appContextProvider';
 
 type Inputs = {
 	email: string;
 };
 
-const Home: React.FC<IHomeProps> = ({ submit }) => {
+const Home: React.FC = () => {
+	const { setSubmit, setEmail } = useAppContext();
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm<Inputs>();
+
+	const submitHandler = (data: { email: string }) => {
+		setEmail(data.email);
+		setSubmit(true);
+	};
+
 	return (
 		<div className='bg-white m-auto justify-between mt-28 w-2/3 flex rounded-[2.5rem] p-5 items-center text'>
 			<div className='p-12'>
@@ -32,7 +35,7 @@ const Home: React.FC<IHomeProps> = ({ submit }) => {
 						<li>And much more!</li>
 					</ul>
 				</div>
-				<form onSubmit={handleSubmit(submit)}>
+				<form onSubmit={handleSubmit(submitHandler)}>
 					<div className='flex flex-col'>
 						<div className='flex justify-between'>
 							<label className='font-bold'>Email Address</label>
@@ -52,7 +55,12 @@ const Home: React.FC<IHomeProps> = ({ submit }) => {
 								},
 							})}
 						/>
-						<Button text='Subscribe to monthly newsletter' type='submit' />
+						<button
+							type='submit'
+							className='w-full bg-midnight text-white rounded-lg p-3 duration-300 ease-in-out font-bold hover:bg-gradient-to-r from-grad1 to-grad2 transition '
+						>
+							Subscribe to monthly newsletter
+						</button>
 					</div>
 				</form>
 			</div>
