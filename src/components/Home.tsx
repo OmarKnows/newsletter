@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import img from '../assets/images/illustration-sign-up-desktop.svg';
+import mob from '../assets/images/illustration-sign-up-mobile.svg';
 import { cn } from '../utils';
 import { useAppContext } from '../context/appContextProvider';
 
@@ -22,7 +23,8 @@ const Home: React.FC = () => {
 	};
 
 	return (
-		<div className='bg-white m-auto justify-between mt-28 w-2/3 flex rounded-[2.5rem] p-5 items-center text'>
+		<div className='bg-white md:justify-between md:mt-28 md:w-2/3 md:flex m-auto flex-col justify-start md:flex-row rounded-[2.5rem] md:p-5 items-center text'>
+			<img className='w-screen md:hidden' src={mob} />
 			<div className='p-12'>
 				<div>
 					<p className='text-6xl mb-6 font-bold'>Stay Updated!</p>
@@ -64,7 +66,7 @@ const Home: React.FC = () => {
 					</div>
 				</form>
 			</div>
-			<div>
+			<div className='hidden md:block'>
 				<img src={img} alt='Illustration' />
 			</div>
 		</div>

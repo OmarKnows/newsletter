@@ -4,7 +4,7 @@ import { useAppContext } from '../context/appContextProvider';
 const Submit = () => {
 	const { setSubmit, email } = useAppContext();
 	return (
-		<div className='bg-white m-auto justify-between mt-40 w-1/3 rounded-[2.5rem] py-10 px-14 items-center text'>
+		<div className='bg-white h-screen md:h-auto relative md:m-auto justify-between mt-40 md:w-1/3 rounded-[2.5rem] py-10 px-14 items-center text'>
 			<img src={img} />
 			<p className='text-6xl my-6 font-bold'>Thanks for subscribing!</p>
 			<p className='mb-6'>
